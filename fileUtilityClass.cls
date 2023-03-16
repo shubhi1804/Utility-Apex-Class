@@ -52,8 +52,8 @@ public class fileUtilityClass {
     
     public static Map<Id, List<ContentVersion>> getRelatedFiles(List<Id> parentIdList) {
 
-        Map<Id, List<ContentVersion>> fileByParentId = new Map<Id, List<ContentVersion>>();
-        Map<Id, Id> contentIdByParentId = new Map<Id, Id>();
+        Map<Id, List<ContentVersion>> fileByParentId    = new Map<Id, List<ContentVersion>>();
+        Map<Id, Id> contentIdByParentId                 = new Map<Id, Id>();
 
         for(ContentDocumentLink contentLink : [Select Id, ContentDocumentId, LinkedEntityId From ContentDocumentLink Where LinkedEntityId IN :parentIdList]) {
             contentIdByParentId.put(contentLink.ContentDocumentId, contentLink.LinkedEntityId);
